@@ -1,6 +1,7 @@
 package com.example.marty.lab02_interactrive;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -20,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void display(int number) {
-        TextView quantityTextView = (TextView)findViewById(R.id.quantity_text_view);
-        quantityTextView.setText(String.valueOf(number));
 
-        TextView priceTextView = (TextView)findViewById(R.id.price_text_view);
+       TextView quantityTextView =  (TextView)findViewById(R.id.quantity_text_view);
+        quantityTextView.setText(String.valueOf(number));
+       TextView priceTextView = (TextView)findViewById(R.id.price_text_view);
         int price = 5;
         int total = price *number;
         String myString = NumberFormat.getCurrencyInstance().format(total);
@@ -31,14 +32,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitAdd(View view) {
-        int Qty = 0;
-        TextView quantityTextView = (TextView)findViewById(R.id.quantity_text_view);
-        Qty = Integer.parseInt(quantityTextView.getText().toString()) + 1 ;
-        quantityTextView.setText(String.valueOf(Qty));
+
+        int quanitty = getQuanitty();
+        display(++quanitty);
 
 
     }
 
+    @NonNull
+    private int getQuanitty() {
+        TextView quantityTextView = (TextView)findViewById(R.id.quantity_text_view);
+        String quantityString = quantityTextView.getText().toString();
+        return Integer.parseInt(quantityString);
+    }
+
     public void submitSub(View view) {
+        int quanitty = getQuanitty();
+        if(quanitty > 0) {
+            display(--quanitty);
+
+        }
+
     }
 }
