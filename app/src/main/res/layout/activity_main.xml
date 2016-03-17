@@ -10,12 +10,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.marty.lab02_interactrive.MainActivity">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Quantity"
+        android:text="Toppings"
         android:textAllCaps="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/Toppings_CheckBox_view"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_marginBottom="16dp"
+            android:checked="true"
+            android:layout_centerVertical="true"
+            android:onClick="clickToppings"/>
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_toRightOf="@+id/Toppings_CheckBox_view"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:text="泡菜"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"/>
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Quantity"/>
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,7 +106,7 @@
         android:id="@+id/price_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NT$0"
+        android:text=""
         android:textSize="16sp"
         android:textColor="@android:color/black"/>
 
